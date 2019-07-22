@@ -30,8 +30,13 @@ public class HelloController {
      System.out.println("Current time of the day: " + time);
 
    Calendar cal = Calendar.getInstance();
+   cal.add(Calendar.HOUR_OF_DAY, 5);
+   cal.add(Calendar.MINUTE, 30);
+
+
         Date date=cal.getTime();
         DateFormat dateFormat = new SimpleDateFormat("HH");
+     System.out.println("Current time now: "+ date);
         String formattedDate=dateFormat.format(date);
         System.out.println("Current time of the day using Calendar - 24 hour format: "+ formattedDate);
        if(Integer.valueOf(formattedDate) >= 0 && Integer.valueOf(formattedDate) < 12){
