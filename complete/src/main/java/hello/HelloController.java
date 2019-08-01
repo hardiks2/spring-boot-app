@@ -19,7 +19,15 @@ public class HelloController {
     public String index(Model model) {
        // return "<html><head><meta charset='UTF-8'><title>Birthday </title><meta name='viewport' content='width=device-width, initial-scale=1'></head><body><marquee><h1 style='font-size:5vw;'>HAPPY BIRTHDAY HARDIK</h1></marquee></body></html>";
        model.addAttribute("homepage");
-        return "home";
+        return "homepage";
+    }
+
+    @RequestMapping("/homepage")
+    public String homePage(Model model) {
+       // return "<html><head><meta charset='UTF-8'><title>Birthday </title><meta name='viewport' content='width=device-width, initial-scale=1'></head><body><marquee><h1 style='font-size:5vw;'>HAPPY BIRTHDAY HARDIK</h1></marquee></body></html>";
+       model.addAttribute("homepage", "Welcome");
+        System.out.println("Inside index");
+        return "homepage";
     }
 
     @RequestMapping("/home")
@@ -36,7 +44,7 @@ public class HelloController {
 
         Date date=cal.getTime();
         DateFormat dateFormat = new SimpleDateFormat("HH");
-     System.out.println("Current time now: "+ date);
+        System.out.println("Current time now: "+ date);
         String formattedDate=dateFormat.format(date);
         System.out.println("Current time of the day using Calendar - 24 hour format: "+ formattedDate);
        if(Integer.valueOf(formattedDate) >= 0 && Integer.valueOf(formattedDate) < 12){
