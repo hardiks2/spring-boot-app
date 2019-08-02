@@ -1,18 +1,18 @@
 package hello;
 
-import org.springframework.web.bind.annotation.RestController;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController
+@Controller
 public class HelloController {
 
     @RequestMapping("/")
@@ -22,12 +22,11 @@ public class HelloController {
         return "homepage";
     }
 
-    @RequestMapping("/homepage")
-    public String homePage(Model model) {
-       // return "<html><head><meta charset='UTF-8'><title>Birthday </title><meta name='viewport' content='width=device-width, initial-scale=1'></head><body><marquee><h1 style='font-size:5vw;'>HAPPY BIRTHDAY HARDIK</h1></marquee></body></html>";
-       model.addAttribute("homepage", "Welcome");
+    @RequestMapping(value = "/abcd", method = RequestMethod.GET)
+    public String abcd(Model model) {
+
         System.out.println("Inside index");
-        return "homepage";
+        return "abcd";
     }
 
     @RequestMapping("/home")
